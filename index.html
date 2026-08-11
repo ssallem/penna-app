@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penna — 개발 진행 보고 (v0.3.0)</title>
+<style>
+  :root{--bg:#FAF9F7;--surface:#fff;--ink:#211E1A;--sub:#6F6A62;--line:#E8E4DE;--accent:#0A6BBD;--mint:#1E836B}
+  @media (prefers-color-scheme:dark){:root{--bg:#171512;--surface:#201D19;--ink:#EDE9E3;--sub:#A39C90;--line:#35312A;--accent:#47B1FF;--mint:#5ECBB0}}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.7;padding:40px 20px 80px}
+  .wrap{max-width:960px;margin:0 auto}
+  .eyebrow{color:var(--sub);font-size:.85rem;letter-spacing:.08em;font-weight:700}
+  h1{font-size:2.1rem;font-weight:800;letter-spacing:-.02em;margin:4px 0 8px}
+  .lead{color:var(--sub);max-width:640px}
+  h2{font-size:1.2rem;font-weight:700;margin:48px 0 14px}
+  h2 .n{color:var(--accent)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .card b{display:block;font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+  .card span{color:var(--sub);font-size:.82rem}
+  .hero{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:16px}
+  .hero .tag{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:2px 12px;font-size:.75rem;font-weight:700}
+  .hero h3{font-size:1.3rem;margin:10px 0 8px}
+  .shots{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
+  .shot{flex:1 1 200px;max-width:260px}
+  .shot img{width:100%;border-radius:12px;border:1px solid var(--line);display:block}
+  .shot figcaption{color:var(--sub);font-size:.8rem;margin-top:6px;text-align:center}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:14px}
+  ul{margin:8px 0 0 20px}li{margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.92rem}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+  th{background:var(--surface)}
+  td.n{text-align:right;font-variant-numeric:tabular-nums}
+  .ok{color:var(--mint);font-weight:700}
+  .foot{color:var(--sub);font-size:.82rem;margin-top:48px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body><div class="wrap">
+
+<p class="eyebrow">2호 앱 개발 진행 보고</p>
+<h1>Penna — 노트 · 메모 앱</h1>
+<p class="lead">v0.3.0 · 2026-08-11 · 1호 앱 <b>Diem</b>의 판매용 템플릿 골격을 재사용해 노트 앱으로 전환 완료. 기능 구현·품질 검증까지 마쳤고 출시 준비 단계입니다.</p>
+
+<div class="cards">
+  <div class="card"><b>73</b><span>유닛 테스트 통과</span></div>
+  <div class="card"><b>14</b><span>지원 언어</span></div>
+  <div class="card"><b>5</b><span>테마 × 라이트/다크</span></div>
+  <div class="card"><b>2</b><span>홈 위젯</span></div>
+  <div class="card"><b class="ok">정상</b><span>R8 릴리스 빌드</span></div>
+  <div class="card"><b class="ok">0</b><span>크래시 (실기 QA)</span></div>
+</div>
+
+<h2><span class="n">01.</span> 차별화 기능 — 홈 위젯에서 바로 체크</h2>
+<div class="hero">
+  <span class="tag">경쟁 앱에 없는 기능</span>
+  <h3>앱을 열지 않고 홈 화면에서 장보기 목록을 체크</h3>
+  <p style="color:var(--sub)">Google Keep · ColorNote의 위젯은 <b>탭하면 앱이 열릴 뿐</b>입니다. Penna는 위젯의 체크박스를 직접 눌러 항목을 완료 처리합니다. 노트 앱 사용의 큰 비중이 장보기·할 일 목록인 만큼 체감 가치가 크고, 스토어 스크린샷 한 장으로 설명되는 소구점입니다.</p>
+  <div class="shots">
+    <figure class="shot"><img src="img/widget-before.png" alt="위젯 체크박스"><figcaption>홈 위젯 — 체크박스 표시</figcaption></figure>
+    <figure class="shot"><img src="img/widget-after.png" alt="위젯 토글 후"><figcaption>탭 → 즉시 완료 처리 (앱 미실행)</figcaption></figure>
+  </div>
+  <ul style="margin-top:16px">
+    <li>연타해도 체크가 유실되지 않도록 DB 트랜잭션으로 직렬화</li>
+    <li>앱에서 항목을 지운 뒤 옛 위젯을 눌러도 엉뚱한 항목이 체크되지 않게 항목 검증</li>
+    <li>앱 잠금 시 위젯은 내용을 숨기고, 잠긴 노트는 위젯에서 수정 불가</li>
+  </ul>
+</div>
+
+<h2><span class="n">02.</span> 주요 화면</h2>
+<div class="gallery">
+  <figure class="shot"><img src="img/list.png" alt="목록"><figcaption>노트 목록 · 고정/일반 2그룹, 색 태그, 검색</figcaption></figure>
+  <figure class="shot"><img src="img/editor.png" alt="에디터"><figcaption>전체화면 에디터 · 넓은 본문 입력</figcaption></figure>
+  <figure class="shot"><img src="img/checklist.png" alt="체크리스트"><figcaption>체크리스트 · 완료 항목 자동 하단 정렬</figcaption></figure>
+  <figure class="shot"><img src="img/settings.png" alt="설정"><figcaption>설정 · 테마 5색, 다크모드, 언어, 앱 잠금</figcaption></figure>
+  <figure class="shot"><img src="img/dark.png" alt="다크"><figcaption>다크 모드 · 웜 뉴트럴 톤</figcaption></figure>
+  <figure class="shot"><img src="img/lang-ja.png" alt="일본어"><figcaption>14개 언어 인앱 전환 (일본어)</figcaption></figure>
+  <figure class="shot"><img src="img/trash.png" alt="휴지통"><figcaption>휴지통 · 30일 후 자동 삭제</figcaption></figure>
+</div>
+
+<h2><span class="n">03.</span> 기능 목록</h2>
+<ul>
+  <li><b>노트</b> — 제목·본문, 색 태그 5종, 고정(핀), 검색, 보관함, 휴지통(30일), 체크리스트</li>
+  <li><b>홈 위젯 2종</b> — 고정 노트(2×2, <b>체크박스 토글</b>) / 목록(4×2)</li>
+  <li><b>알림</b> — 노트별 리마인더 (정밀 알람 권한 미사용 → Play 정책 리스크 회피)</li>
+  <li><b>보안</b> — 앱 잠금(PIN + 지문), 백그라운드 복귀 시 재잠금, 잠김 중 위젯 내용 차단</li>
+  <li><b>기타</b> — 5테마 × 라이트/다크, 14개 언어, 완전 오프라인·계정 불필요</li>
+</ul>
+
+<h2><span class="n">04.</span> 품질 · 안정성</h2>
+<p style="color:var(--sub)">개발 중 발견된 "응답 없음(ANR)" 현상의 원인을 시스템 오류 기록까지 복구해 규명했습니다. 광고 SDK가 <b>광고가 표시되지 않는 지역에서도</b> 브라우저 엔진 전체를 메인 스레드에서 로드하던 것이 원인이었고, 초기화를 광고가 실제로 필요한 시점으로 옮겨 해결했습니다.</p>
+<table>
+  <tr><th>지표 (앱 시작 시)</th><th class="n">개선 전</th><th class="n">개선 후</th></tr>
+  <tr><td>시작 소요 시간</td><td class="n">2,868 ms</td><td class="n"><b>1,552 ms</b></td></tr>
+  <tr><td>화면 멈춤(프레임 지연)</td><td class="n">3회 (최대 1.6초)</td><td class="n"><b>0회</b></td></tr>
+  <tr><td>메모리 사용</td><td class="n">178 MB</td><td class="n"><b>111 MB</b></td></tr>
+  <tr><td>스레드 수</td><td class="n">77</td><td class="n"><b>37</b></td></tr>
+</table>
+<ul style="margin-top:14px">
+  <li>유닛 테스트 <b>73개</b> 전건 통과 · 릴리스(R8 최적화) 빌드 정상</li>
+  <li>에뮬레이터 실기 QA 3회 · 코드 비판적 검토 6회 — 발견 결함 전건 수정</li>
+  <li>사용자 실기 피드백 3건(응답 없음 · 좁은 입력란 · 표시 오류) 모두 반영 완료</li>
+</ul>
+
+<h2><span class="n">05.</span> 남은 작업</h2>
+<ul>
+  <li>출시용 서명 키 생성 · 실 광고 ID 적용</li>
+  <li>Play 콘솔 서류 (개인정보처리방침 · 데이터 안전 · 콘텐츠 등급)</li>
+  <li>스토어 리스팅 소재 (아이콘 · 그래픽 · 소개문)</li>
+  <li>위젯 레이아웃 폴리시 · 목록에 리마인더 표시 (선택 개선)</li>
+</ul>
+
+<p class="foot">Penna v0.3.0 · 2026-08-11 · 소스 코드는 비공개입니다. 본 페이지는 진행 보고용으로, 화면은 개발 빌드(데모 데이터 · 테스트 광고) 기준입니다.</p>
+</div></body></html>
