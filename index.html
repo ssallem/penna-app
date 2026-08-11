@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Penna — 개발 진행 보고</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#FAF9F7; --ink:#211E1A; --sub:#6F6A62; --line:#DFD9D1;
@@ -19,75 +19,83 @@
   body{
     background:var(--paper); color:var(--ink);
     font-family:"Pretendard","Malgun Gothic",sans-serif;
-    font-size:16.5px; line-height:1.85; letter-spacing:-.004em;
+    font-size:16.5px; line-height:1.85; letter-spacing:-.006em;
     padding:0 22px 96px; hanging-punctuation:first;
   }
   .sheet{max-width:672px;margin:0 auto}
-  .serif{font-family:"Gowun Batang","Nanum Myeongjo",serif}
-  .num{font-family:"Space Grotesk",monospace;font-feature-settings:"tnum";font-weight:500}
+  .num{font-family:"Space Grotesk",monospace;font-feature-settings:"tnum";font-weight:500;letter-spacing:0}
 
-  /* ── masthead ─────────────────────────── */
+  /* masthead */
   header{padding:64px 0 0}
   .mark{width:26px;height:2px;background:var(--rule);margin-bottom:26px}
-  .kicker{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);font-weight:600}
-  h1{font-family:"Gowun Batang",serif;font-weight:400;font-size:2.5rem;line-height:1.25;letter-spacing:-.01em;margin:10px 0 0}
-  h1 em{font-style:normal;border-bottom:2px solid var(--accent);padding-bottom:1px}
+  .kicker{font-size:.71rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);font-weight:600}
+  h1{font-weight:600;font-size:2.3rem;line-height:1.22;letter-spacing:-.035em;margin:12px 0 0}
+  h1 span{color:var(--accent)}
   .standfirst{margin-top:18px;color:var(--sub);font-size:1.02rem}
   .dateline{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--sub)}
-  .dateline .num{font-size:.8rem}
 
-  /* ── sections ─────────────────────────── */
+  /* sections — thin tick instead of numbers */
   section{margin-top:56px}
-  h2{font-family:"Gowun Batang",serif;font-weight:400;font-size:1.45rem;letter-spacing:-.01em;margin-bottom:2px}
-  .subtle{color:var(--sub);font-size:.88rem;margin-bottom:16px}
+  section::before{content:"";display:block;width:18px;height:1px;background:var(--rule);margin-bottom:18px;opacity:.55}
+  h2{font-weight:600;font-size:1.3rem;letter-spacing:-.025em;margin-bottom:3px}
+  .subtle{color:var(--sub);font-size:.87rem;margin-bottom:14px}
   p{margin-top:14px;text-wrap:pretty}
   p.first{margin-top:10px}
   strong{font-weight:600}
 
-  /* ── spec band (facts, no card grid) ──── */
+  /* spec band */
   .spec{border-top:1px solid var(--rule);border-bottom:1px solid var(--line);margin-top:26px}
   .spec dl{display:flex;flex-wrap:wrap}
   .spec div{flex:1 1 33%;min-width:110px;padding:14px 14px 14px 0;border-bottom:1px solid var(--line)}
   .spec div:nth-child(n+4){border-bottom:none}
-  .spec dt{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);font-weight:600}
-  .spec dd{font-size:1.32rem;margin-top:2px}
+  .spec dt{font-size:.69rem;letter-spacing:.11em;text-transform:uppercase;color:var(--sub);font-weight:600}
+  .spec dd{font-size:1.3rem;margin-top:2px;font-weight:500}
 
-  /* ── figures ──────────────────────────── */
+  /* figures */
   figure{margin-top:26px}
   figure img{width:100%;display:block;border:1px solid var(--line)}
-  figcaption{font-family:"Gowun Batang",serif;font-size:.86rem;color:var(--sub);margin-top:9px;font-style:italic}
+  figcaption{font-size:.85rem;color:var(--sub);margin-top:9px}
   .pair{display:flex;gap:14px}
   .pair figure{margin-top:0;flex:1}
   .duo{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;align-items:start;margin-top:30px}
   .duo.flip{grid-template-columns:1fr 1.15fr}
   .duo.flip .txt{order:-1}
-  .duo h3{font-family:"Gowun Batang",serif;font-weight:700;font-size:1.02rem;margin-bottom:4px}
-  .duo p{margin-top:6px;font-size:.94rem;color:var(--sub)}
+  .duo h3{font-weight:600;font-size:1rem;margin-bottom:2px;letter-spacing:-.02em}
+  .duo p{margin-top:6px;font-size:.93rem;color:var(--sub)}
   .strip{display:flex;gap:12px;overflow-x:auto;margin-top:26px;padding-bottom:6px;scroll-snap-type:x mandatory}
   .strip figure{margin-top:0;flex:0 0 132px;scroll-snap-align:start}
-  .strip figcaption{font-size:.78rem;font-style:normal;font-family:"Pretendard",sans-serif}
+  .strip figcaption{font-size:.77rem}
   @media (max-width:560px){.duo,.duo.flip{grid-template-columns:1fr}.duo.flip .txt{order:0}}
 
-  /* ── aside note (margin voice) ────────── */
+  /* margin note */
   .note{border-left:2px solid var(--accent);padding:2px 0 2px 16px;margin-top:26px;color:var(--sub);font-size:.93rem}
   .note b{color:var(--ink);font-weight:600}
 
-  /* ── measures table ───────────────────── */
-  table{width:100%;border-collapse:collapse;margin-top:22px;font-size:.93rem}
-  caption{text-align:left;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);font-weight:600;padding-bottom:8px}
+  /* name block */
+  .name{margin-top:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0}
+  .name .word{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:2rem;letter-spacing:-.02em;line-height:1}
+  .name .gloss{color:var(--sub);font-size:.86rem;margin-top:6px}
+  .cands{margin-top:16px;font-size:.9rem}
+  .cands div{display:flex;gap:12px;padding:7px 0;border-top:1px solid var(--line);color:var(--sub)}
+  .cands div:first-child{border-top:none}
+  .cands b{flex:0 0 74px;color:var(--ink);font-weight:600}
+
+  /* measures */
+  table{width:100%;border-collapse:collapse;margin-top:22px;font-size:.92rem}
+  caption{text-align:left;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);font-weight:600;padding-bottom:8px}
   th,td{padding:9px 4px;border-bottom:1px solid var(--line);text-align:left}
-  thead th{border-bottom:1px solid var(--rule);font-weight:600;font-size:.8rem;color:var(--sub)}
+  thead th{border-bottom:1px solid var(--rule);font-weight:600;font-size:.78rem;color:var(--sub)}
   td.r,th.r{text-align:right}
   td.was{color:var(--sub);text-decoration:line-through;text-decoration-thickness:1px}
   td.now{color:var(--mint)}
 
-  /* ── lists: hanging, not bulleted boxes ─ */
+  /* hanging lists */
   .items{margin-top:16px}
   .items li{list-style:none;padding-left:22px;text-indent:-22px;margin-bottom:9px}
   .items li::before{content:"—";color:var(--sub);padding-right:9px}
   .items li b{font-weight:600}
 
-  footer{margin-top:64px;padding-top:14px;border-top:1px solid var(--line);color:var(--sub);font-size:.8rem}
+  footer{margin-top:64px;padding-top:14px;border-top:1px solid var(--line);color:var(--sub);font-size:.79rem}
   a{color:var(--accent);text-underline-offset:3px}
   @media print{body{padding:0}.strip{overflow:visible;flex-wrap:wrap}}
 </style>
@@ -98,21 +106,37 @@
 <header>
   <div class="mark"></div>
   <p class="kicker">2호 앱 개발 진행 보고</p>
-  <h1>Penna — 홈 화면에서<br>바로 체크하는 <em>메모장</em></h1>
-  <p class="standfirst">1호 앱 Diem에서 만든 판매용 골격을 그대로 이식해, 노트 앱으로 전환을 마쳤습니다. 기능 구현과 품질 검증은 끝났고 지금은 출시 준비 단계입니다. 아래는 무엇을 만들었고 무엇이 남았는지에 대한 요약입니다.</p>
+  <h1>Penna — 홈 화면에서<br>바로 체크하는 <span>메모장</span></h1>
+  <p class="standfirst">1호 앱 Diem에서 만든 판매용 골격을 그대로 이식해 노트 앱으로 전환을 마쳤습니다. 기능 구현과 품질 검증은 끝났고 지금은 출시 준비 단계입니다. 아래는 무엇을 만들었고 무엇이 남았는지에 대한 요약입니다.</p>
   <p class="dateline"><span class="num">v0.3.0</span> · 2026년 8월 11일 · 개발 빌드 기준</p>
 </header>
 
 <div class="spec">
   <dl>
-    <div><dt>Unit tests</dt><dd class="num">73 <span style="font-size:.8rem;color:var(--sub)">통과</span></dd></div>
+    <div><dt>Unit tests</dt><dd class="num">73 <span style="font-size:.8rem;color:var(--sub);font-family:Pretendard">통과</span></dd></div>
     <div><dt>Languages</dt><dd class="num">14</dd></div>
     <div><dt>Themes</dt><dd class="num">5 <span style="font-size:.8rem;color:var(--sub)">×2</span></dd></div>
     <div><dt>Widgets</dt><dd class="num">2</dd></div>
-    <div><dt>Release build</dt><dd style="font-size:1.05rem;padding-top:6px">R8 정상</dd></div>
+    <div><dt>Release build</dt><dd style="font-size:1.02rem;padding-top:6px">R8 정상</dd></div>
     <div><dt>Crashes</dt><dd class="num">0</dd></div>
   </dl>
 </div>
+
+<section>
+  <h2>이름</h2>
+  <p class="subtle">왜 Penna인가</p>
+  <div class="name">
+    <div class="word">Penna</div>
+    <p class="gloss">라틴어로 '펜, 깃털'. 이탈리아어와 스웨덴어에서는 지금도 펜을 이렇게 부릅니다.</p>
+    <p style="margin-top:12px">1호 앱 <strong>Diem</strong>이 라틴어로 '날(day)'이니, 두 앱을 나란히 놓으면 <strong>하루(Diem)를 펜(Penna)으로 적는다</strong>가 됩니다. 앞으로 앱이 늘어나도 같은 계보로 이어붙일 수 있는 이름 체계입니다.</p>
+    <div class="cands">
+      <div><b>Nota</b><span>라틴어 '기록'. 뜻은 가장 정확했지만 Play에 동명 노트 앱이 이미 여럿이고, 100만 다운로드 규모의 Notta와 혼동돼 탈락.</span></div>
+      <div><b>Tabula</b><span>'빈 서판'(tabula rasa). 충돌은 없었으나 3음절로 Diem과 리듬이 맞지 않아 차점.</span></div>
+      <div><b>Folio</b><span>'잎, 한 장'. 마크다운 노트 앱 등 유사명이 있어 검색에서 불리.</span></div>
+    </div>
+    <p style="margin-top:14px;font-size:.92rem;color:var(--sub)">Penna는 노트 카테고리에 동명 앱이 없고, 14개 지원 언어권 어디서도 발음·뜻에 걸리는 데가 없었습니다. 스토어 제목은 <strong style="color:var(--ink)">Penna – Notes &amp; Memo Widget</strong>.</p>
+  </div>
+</section>
 
 <section>
   <h2>다른 메모 앱에는 없는 것</h2>
