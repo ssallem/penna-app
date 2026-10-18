@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보처리방침 — Penna</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0 auto; max-width: 46rem; padding: 1.5rem 1.25rem 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", Roboto, sans-serif;
+    font-size: 17px; line-height: 1.75; color: #1b1b1f; background: #fff;
+    word-break: keep-all; overflow-wrap: break-word;
+  }
+  h1 { font-size: 1.7rem; line-height: 1.35; margin: .5rem 0 .25rem; }
+  h2 { font-size: 1.15rem; margin: 2.2rem 0 .5rem; padding-top: .6rem; border-top: 1px solid #e3e3e8; }
+  p, li { margin: .6rem 0; }
+  ul { padding-left: 1.3rem; }
+  a { color: #2757d6; }
+  .lang { display: inline-block; margin-bottom: 1rem; font-size: .95rem; }
+  .meta { font-size: .95rem; color: #5b5b66; margin: 0 0 1.5rem; }
+  .lead {
+    background: #f2f6ff; border: 1px solid #cddafb; border-radius: 10px;
+    padding: 1rem 1.1rem; font-weight: 600; margin: 1.2rem 0 1.5rem;
+  }
+  table { border-collapse: collapse; width: 100%; margin: .8rem 0; font-size: .95rem; }
+  th, td { border: 1px solid #e3e3e8; padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  th { background: #f6f6f9; }
+  footer { margin-top: 2.5rem; font-size: .9rem; color: #5b5b66; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e8e8ed; background: #16161a; }
+    h2 { border-top-color: #34343c; }
+    a { color: #8fb0ff; }
+    .meta, footer { color: #a0a0ad; }
+    .lead { background: #1d2437; border-color: #2f3d5e; }
+    th, td { border-color: #34343c; }
+    th { background: #21212a; }
+  }
+</style>
+</head>
+<body>
+
+<a class="lang" href="index.html">English version →</a>
+
+<h1>개인정보처리방침 — Penna</h1>
+<p class="meta">
+  시행일: <strong>2026년 10월 18일</strong><br>
+  앱: Penna (노트·메모 앱), 패키지 <code>center.eightbit.penna</code>, 버전 1.0.0<br>
+  사업자: <strong>Vravio Inc</strong><br>
+  문의: app@binah.team
+</p>
+
+<p class="lead">Penna는 이용자의 개인정보를 수집하지 않습니다. 회원가입·로그인이 없고, 데이터를 받는 서버가 없으며, 광고와 추적 기술도 없습니다. 작성하신 모든 노트는 이용자의 기기에만 저장됩니다.</p>
+
+<h2>1. 수집하는 개인정보</h2>
+<p>없습니다. 사업자(Vravio Inc)는 어떠한 개인정보도 수집·전송·판매·공유하지 않습니다. 앱으로부터 데이터를 수신하는 서버를 운영하지 않고, 클라우드 동기화가 없으며, 사업자가 이용자의 노트를 열람할 수 있는 수단이 없습니다. 이번 버전은 기기 밖으로 어떤 데이터도 전송하지 않습니다.</p>
+
+<h2>2. 기기 내부에 저장되는 정보</h2>
+<p>이용자가 만든 내용을 다시 보여주기 위해 아래 정보를 기기의 앱 전용 저장 영역(로컬 SQLite 데이터베이스 <code>notes.db</code> 및 앱 설정)에만 저장합니다.</p>
+<ul>
+  <li>이용자가 입력한 노트 제목과 본문</li>
+  <li>체크리스트 항목과 완료/미완료 상태</li>
+  <li>색 태그, 핀 고정 표시, 아카이브·휴지통 상태, 리마인더 시각</li>
+  <li>테마·언어 등 앱 환경설정</li>
+  <li>앱 잠금을 켠 경우, PIN의 솔트 적용 SHA-256 <strong>해시값</strong>(PIN 원문은 저장하지 않음)</li>
+</ul>
+<p>이 정보는 사업자나 제3자에게 전송되지 않으며, 앱을 삭제하면 함께 삭제됩니다.</p>
+
+<h2>3. 개인정보 처리 목적 · 보유기간 · 파기</h2>
+<table>
+  <tr><th>구분</th><th>내용</th></tr>
+  <tr><td>처리 목적</td><td>이용자가 작성한 노트의 화면·위젯 표시 및 알림 제공 (기기 내 처리에 한함)</td></tr>
+  <tr><td>처리 주체</td><td>이용자의 기기. 사업자(Vravio Inc) 서버로의 수집·이전 없음</td></tr>
+  <tr><td>보유기간</td><td>이용자가 노트를 삭제하거나 앱을 삭제할 때까지. 휴지통으로 옮긴 노트는 30일 뒤 자동 삭제</td></tr>
+  <tr><td>파기 방법</td><td>노트 삭제, 휴지통 비우기(또는 30일 자동 삭제), 앱 삭제, 기기 설정의 앱 데이터 삭제 시 파기 (별도 보관본 없음)</td></tr>
+  <tr><td>제3자 제공 · 처리위탁</td><td>없음</td></tr>
+</table>
+<p>사업자가 별도로 보관하는 개인정보가 없으므로, 법령에 따른 별도 보존 대상 정보도 존재하지 않습니다.</p>
+
+<h2>4. 안드로이드 자동 백업 고지</h2>
+<p>Penna는 안드로이드 표준 자동 백업(Auto Backup) 기능을 허용합니다. 이용자가 기기 설정에서 백업을 켜 둔 경우, 안드로이드가 앱의 로컬 데이터를 <strong>이용자 본인의 Google 계정 백업</strong>에 포함시킬 수 있으며, 기기 변경 시 복원에 사용됩니다. 이 백업은 이용자 본인의 Google 계정에 속하고 이용자의 설정으로 제어되며, <strong>Vravio Inc는 접근할 수 없습니다.</strong> 원하지 않으시면 기기의 <em>설정 → Google → 백업</em>에서 끌 수 있습니다.</p>
+
+<h2>5. 권한과 사용 목적</h2>
+<ul>
+  <li><strong>알림</strong>(<code>POST_NOTIFICATIONS</code>) — 이용자가 작성한 노트의 리마인더 알림을 기기에서 표시하는 용도로만 사용합니다. 알림 내용은 기기 내부에서 생성되며 외부로 전송되지 않습니다. 권한을 거부하거나 나중에 해제해도 나머지 기능은 정상 동작합니다. 리마인더는 원샷 백그라운드 작업으로 동작하며, <strong>정확한 알람 권한은 요청하지 않습니다.</strong></li>
+  <li><strong>인터넷 · 네트워크 상태</strong>(<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>) — 앱에 포함된 광고 라이브러리 때문에 선언되어 있으나, 이번 버전에서 해당 라이브러리는 <strong>비활성 상태이며 초기화되지 않습니다.</strong> 앱 자체는 네트워크 요청을 하지 않으며 어떤 데이터도 네트워크로 전송하지 않습니다. 이용자가 입력한 노트·설정은 기기를 벗어나지 않습니다.</li>
+  <li><strong>생체인증</strong>(<code>USE_BIOMETRIC</code>, <code>USE_FINGERPRINT</code>) — 안드로이드 생체인증 라이브러리가 추가하는 권한으로, 이용자가 선택 기능인 앱 잠금을 켠 경우에만 사용됩니다(6절 참조).</li>
+  <li><strong>라이브러리가 자동 추가하는 권한</strong>(<code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>, <code>DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>) — 리마인더 알림을 예약·실행하는 작업 스케줄러 라이브러리가 최종 빌드에 자동으로 추가하는 권한입니다. 기기에서 예약된 알림을 표시하는 용도로만 쓰이며, 개인정보 수집과는 무관합니다.</li>
+</ul>
+
+<h2>6. 앱 잠금과 생체인증</h2>
+<p>이용자는 선택적으로 PIN과 함께 지문·얼굴 또는 기기 화면 잠금으로 앱 전체를 잠글 수 있습니다. 생체 인식은 전적으로 안드로이드의 보안 시스템(BiometricPrompt)이 수행하며, <strong>지문·얼굴 정보는 기기를 벗어나지 않고 앱이나 Vravio Inc가 열람할 수 없습니다.</strong> Penna는 PIN의 솔트 적용 SHA-256 해시값만 저장하며, 이 해시값으로부터 PIN을 복원할 수 없습니다. 앱 잠금은 프라이버시 보호 화면이며 노트 데이터베이스 자체의 암호화는 아님을 유의하십시오.</p>
+
+<h2>7. 광고 및 추적</h2>
+<p>이번 버전은 <strong>광고를 표시하지 않습니다.</strong> 광고 SDK를 초기화하지 않으며, Android 광고 ID를 요청하거나 사용하지 않습니다(앱에서 <code>AD_ID</code> 권한을 제거함). 분석 SDK, 크래시 리포팅 SDK, 쿠키 등 어떠한 추적 기술도 사용하지 않습니다. 향후 버전에서 광고를 도입하는 경우, 해당 버전 출시 전에 본 방침과 Google Play 데이터 보안(Data safety) 항목을 먼저 갱신합니다.</p>
+
+<h2>8. 제3자 제공 및 판매</h2>
+<p>개인정보를 수집하지 않으므로 어떠한 제3자에게도 제공·공개·판매하는 정보가 없습니다.</p>
+
+<h2>9. 아동의 개인정보</h2>
+<p>Penna는 만 13세 미만 아동을 대상으로 하지 않으며 아동용으로 설계되지 않았습니다. 만 13세 미만 아동의 개인정보를 고의로 수집하지 않습니다. 관련 문의는 app@binah.team으로 보내주십시오.</p>
+
+<h2>10. 정보주체의 권리 및 데이터 삭제 방법</h2>
+<p>이용자는 「개인정보 보호법」에 따라 개인정보의 열람·정정·삭제·처리정지를 요구할 권리가 있습니다. Penna의 데이터는 전부 이용자 기기에 있으므로, 이용자가 직접 즉시 행사할 수 있습니다.</p>
+<ul>
+  <li><strong>개별 삭제</strong> — 앱에서 해당 노트를 삭제(휴지통으로 이동 후 30일 뒤 자동 삭제, 또는 휴지통 비우기로 즉시 삭제)</li>
+  <li><strong>전체 삭제</strong> — 앱 삭제 시 로컬 데이터 전부 삭제</li>
+  <li><strong>앱 유지하며 삭제</strong> — 기기의 <em>설정 → 애플리케이션 → Penna → 저장공간 → 데이터 삭제</em></li>
+  <li><strong>백업본</strong> — 이용자 본인의 Google 계정 백업 설정에서 관리</li>
+</ul>
+<p>사업자가 보관하는 이용자 정보가 없으므로 열람·정정·삭제를 대신 처리할 대상 자체가 존재하지 않습니다. 앱에 관한 문의는 아래 연락처로 접수하실 수 있습니다.</p>
+
+<h2>11. 개인정보 보호책임자</h2>
+<p>
+  성명/직책: Joseph Hyun<br>
+  소속: Vravio Inc<br>
+  이메일: app@binah.team
+</p>
+<p>개인정보 침해에 대한 신고·상담이 필요한 경우 개인정보침해신고센터(privacy.kisa.or.kr, 국번없이 118), 개인정보 분쟁조정위원회(kopico.go.kr, 1833-6972), 대검찰청 사이버수사과(spo.go.kr, 1301), 경찰청 사이버수사국(ecrm.police.go.kr, 182)에 문의하실 수 있습니다.</p>
+
+<h2>12. 서비스 제공 지역</h2>
+<p>Penna는 Google Play를 통해 배포됩니다.</p>
+
+<h2>13. 방침의 변경</h2>
+<p>본 방침이 변경되는 경우 이 주소에 개정된 내용을 게시하고 상단의 시행일을 갱신합니다. 중요한 변경(예: 향후 버전의 광고 도입)은 해당 버전 출시 전에 본 방침에 반영하고, 필요한 경우 Google Play 데이터 보안(Data safety) 항목도 함께 갱신합니다.</p>
+
+<h2>14. 문의처</h2>
+<p>Vravio Inc — app@binah.team</p>
+
+<footer>최종 수정일: 2026년 10월 18일 · © Vravio Inc</footer>
+
+</body>
+</html>
